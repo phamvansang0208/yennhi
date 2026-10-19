@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gửi Yến Nhi 💗</title>
+<meta name="theme-color" content="#ffe5ef">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #75465b;
+  background: linear-gradient(135deg, #ffe5ef, #fce1f1, #fff2e8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 15px;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 650px;
+  min-height: 540px;
+  padding: 48px 28px 25px;
+  text-align: center;
+  background: rgba(255,255,255,.9);
+  border: 1px solid white;
+  border-radius: 28px;
+  box-shadow: 0 15px 50px #d987aa35;
+}
+
+.counter {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #c77798;
+}
+
+.page {
+  display: none;
+  animation: appear .5s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.emoji {
+  font-size: 62px;
+  margin: 10px 0 20px;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% { transform: translateY(-8px); }
+}
+
+h1 {
+  font-size: clamp(27px, 6vw, 38px);
+  color: #c94f83;
+  margin: 12px 0 18px;
+}
+
+h2 {
+  font-size: 20px;
+  color: #b65e86;
+  margin: 14px 0;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.9;
+  margin: 13px 0;
+}
+
+.small {
+  color: #b17d94;
+  font-size: 13px;
+}
+
+.next {
+  margin-top: 22px;
+  padding: 13px 24px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  background: linear-gradient(135deg, #f28bb3, #d96899);
+  box-shadow: 0 6px 18px #df76a440;
+  cursor: pointer;
+  transition: .25s;
+  font-size: 14px;
+}
+
+.next:hover {
+  transform: translateY(-3px);
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-top: 35px;
+  padding-top: 18px;
+  border-top: 1px solid #f6dce7;
+  font-size: 12px;
+  color: #c18aa2;
+}
+
+.navigation button {
+  padding: 9px 12px;
+  border: none;
+  border-radius: 20px;
+  background: #ffe4ef;
+  color: #a85278;
+  cursor: pointer;
+}
+
+.navigation button:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+
+.memory, .letter, .wish-list, .final-card {
+  background: linear-gradient(135deg, #fff5f8, #ffe6f0);
+  border: 1px solid #f9d5e4;
+  border-radius: 18px;
+  padding: 16px;
+  margin: 13px 0;
+}
+
+.memory-icon {
+  font-size: 32px;
+}
+
+.memory h2 {
+  margin: 5px 0;
+}
+
+.memory p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.letter {
+  text-align: left;
+  border-left: 4px solid #f19abc;
+}
+
+.signature {
+  text-align: right;
+  color: #d05e91;
+  font-weight: bold;
+}
+
+.wish-list p {
+  margin: 8px 0;
+}
+
+.big-heart {
+  color: #ed78a6;
+  font-size: 75px;
+  margin: 15px;
+  animation: beat 1s infinite;
+}
+
+@keyframes beat {
+  50% { transform: scale(1.15); }
+}
+
+.pink {
+  color: #e76e9f;
+}
+
+.heart {
+  position: fixed;
+  bottom: -35px;
+  pointer-events: none;
+  z-index: 0;
+  animation: rise linear forwards;
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 48px 17px 20px;
+  }
+  p { font-size: 15px; }
+  .navigation { font-size: 10px; }
+  .navigation button { padding: 9px 7px; }
+}
+</style>
+</head>
+
+<body>
+<div id="hearts"></div>
+
+<main class="container">
+  <div class="counter" id="counter">01 / 07</div>
+
+  <!-- TRANG 1 -->
+  <section class="page active">
+    <div class="emoji">💌</div>
+    <p class="small">Có một món quà dành riêng cho...</p>
+    <h1>Lê Thị Yến Nhi</h1>
+    <h2>Chúc mừng ngày 20/10 💗</h2>
+    <p>Anh có một điều nho nhỏ muốn dành tặng em. Hãy mở từng trang để khám phá nhé!</p>
+    <button class="next" onclick="go(1)">Mở món quà 💝</button>
+  </section>
+
+  <!-- TRANG 2 -->
+  <section class="page">
+    <div class="emoji">🌷</div>
+    <h1>Gửi bé Nhi</h1>
+    <p>Chúc em ngày 20/10 thật vui vẻ, luôn bình an và gặp được thật nhiều điều tốt đẹp.</p>
+    <p>Mong em luôn có những nụ cười thật tươi, những ngày thật vui và những người thật lòng yêu thương em.</p>
+    <p>Đặc biệt, mong hôm nay em sẽ nhận được một món quà khiến em mỉm cười. 🥰</p>
+    <button class="next" onclick="go(2)">Tiếp tục nha 💕</button>
+  </section>
+
+  <!-- TRANG 3 -->
+  <section class="page">
+    <div class="emoji">💗</div>
+    <h1>Điều đặc biệt ở em</h1>
+
+    <div class="memory">
+      <div class="memory-icon">🌷</div>
+      <h2>Nụ cười của em</h2>
+      <p>Mong em luôn có thật nhiều niềm vui và những ngày bình yên.</p>
+    </div>
+
+    <div class="memory">
+      <div class="memory-icon">✨</div>
+      <h2>Sự xuất hiện của em</h2>
+      <p>Cảm ơn em đã khiến những điều bình thường trở nên đáng nhớ.</p>
+    </div>
+
+    <div class="memory">
+      <div class="memory-icon">🧸</div>
+      <h2>Những điều nhỏ bé</h2>
+      <p>Anh trân trọng từng câu chuyện và khoảnh khắc được sẻ chia cùng em.</p>
+    </div>
+
+    <button class="next" onclick="go(3)">Đọc thư nhé 💌</button>
+  </section>
+
+  <!-- TRANG 4 -->
+  <section class="page">
+    <div class="emoji">💌</div>
+    <h1>Một lá thư nhỏ</h1>
+    <div class="letter">
+      <p>Nhi à,</p>
+      <p>Anh không biết phải nói những lời hoa mỹ thế nào, nhưng anh thật sự trân trọng những khoảnh khắc được ở bên em.</p>
+      <p>Cảm ơn em vì đã xuất hiện, vì những tin nhắn, những nụ cười và cả những điều nhỏ bé làm ngày bình thường trở nên đáng nhớ hơn.</p>
+      <p>Anh mong chúng mình sẽ luôn biết lắng nghe, quan tâm và cùng nhau trưởng thành.</p>
+      <p>Dù đôi khi có những lúc không vui, anh hy vọng cả hai vẫn có thể chân thành chia sẻ và thấu hiểu nhau.</p>
+      <p class="signature">Thương em nhiều 💗</p>
+    </div>
+    <button class="next" onclick="go(4)">Còn nữa nè 🌸</button>
+  </section>
+
+  <!-- TRANG 5 -->
+  <section class="page">
+    <div class="emoji">🎀</div>
+    <h1>Điều anh mong cho em</h1>
+    <div class="wish-list">
+      <p>🌸 Luôn vui vẻ và yêu đời.</p>
+      <p>🧸 Luôn được yêu thương, quan tâm.</p>
+      <p>✨ Mọi ước mơ dần thành hiện thực.</p>
+      <p>🍀 Những ngày buồn sẽ sớm qua đi.</p>
+      <p>🌈 Luôn tự tin và là chính mình.</p>
+      <p>💗 Mỗi ngày đều có một điều đáng mong chờ.</p>
+    </div>
+    <p>Mong rằng anh cũng có thể góp một chút niềm vui vào cuộc sống của em.</p>
+    <button class="next" onclick="go(5)">Một điều nữa nhé 💝</button>
+  </section>
+
+  <!-- TRANG 6 -->
+  <section class="page">
+    <div class="emoji">💖</div>
+    <h1>Em có biết không?</h1>
+    <p>Một tin nhắn từ em cũng có thể khiến anh vui hơn. Một câu chuyện nhỏ của em cũng khiến anh muốn lắng nghe thật lâu.</p>
+    <p>Anh không mong mọi thứ lúc nào cũng hoàn hảo. Chỉ mong chúng mình chân thành, tôn trọng nhau và cùng cố gắng mỗi ngày.</p>
+    <div class="big-heart">♥</div>
+    <h2>Em luôn là một điều đáng quý. 💗</h2>
+    <button class="next" onclick="go(6)">Lời chúc cuối cùng 💌</button>
+  </section>
+
+  <!-- TRANG 7 -->
+  <section class="page">
+    <div class="emoji">🌹</div>
+    <h1>Happy Women's Day!</h1>
+    <h2>20 / 10 / 2026</h2>
+    <div class="final-card">
+      <p>Chúc Lê Thị Yến Nhi của anh có một ngày 20/10 thật hạnh phúc.</p>
+      <p>Mong em luôn rạng rỡ, bình an, gặp nhiều may mắn và được yêu thương thật nhiều.</p>
+      <p>Hy vọng khi đọc đến đây, em sẽ mỉm cười một chút. Vì món quà này được chuẩn bị với tất cả sự chân thành dành cho em.</p>
+    </div>
+    <h2 class="pink">Thương em, Yến Nhi! 💗</h2>
+    <p class="small">Một món quà nhỏ, dành riêng cho em.</p>
+    <button class="next" onclick="restart()">Đọc lại từ đầu ↻</button>
+  </section>
+
+  <div class="navigation">
+    <button id="backBtn" onclick="go(current - 1)" disabled>← Quay lại</button>
+    <span>Made with ♥</span>
+    <button id="nextBtn" onclick="go(current + 1)">Tiếp →</button>
+  </div>
+</main>
+
+<script>
+let current = 0;
+const pages = document.querySelectorAll(".page");
+const counter = document.getElementById("counter");
+const backBtn = document.getElementById("backBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+function go(index) {
+  if (index < 0 || index >= pages.length) return;
+
+  current = index;
+
+  pages.forEach((page, i) => {
+    page.classList.toggle("active", i === current);
+  });
+
+  counter.textContent =
+    String(current + 1).padStart(2, "0") + " / 07";
+
+  backBtn.disabled = current === 0;
+  nextBtn.disabled = current === pages.length - 1;
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function restart() {
+  go(0);
+}
+
+function createHeart() {
+  const heart = document.createElement("span");
+  heart.className = "heart";
+
+  const symbols = ["💗", "💕", "💖", "💘", "🌸"];
+  heart.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (14 + Math.random() * 20) + "px";
+  heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+  document.getElementById("hearts").appendChild(heart);
+
+  setTimeout(() => heart.remove(), 10000);
+}
+
+setInterval(createHeart, 550);
+go(0);
+</script>
+</body>
+</html>
